@@ -1,0 +1,7 @@
+export const SHOW_CAPTION_FORM = "SHOW_CAPTION_FORM";
+export const SHOW_CAPTION_TAG_FORM = "SHOW_CAPTION_TAG_FORM";
+export const SHOW_TAG_LINK = "SHOW_TAG_LINK";
+export const ADD_CAPTION = "ADD_CAPTION"
+export const FETCH_CAPTIONS = "FETCH_CAPTIONS";
+export const FETCH_TAGS = "FETCH_TAGS";
+export const TOGGLE_ICON = "TOGGLE_ICON";
