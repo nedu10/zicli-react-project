@@ -28,12 +28,12 @@ export const addNewCaption = value => {
 
 export const fetchTags = () => {
   return axios
-  .get(`https://capcards-api.herokuapp.com/v1.0/api/tag/`)
+    .get(`https://capcards-api.herokuapp.com/v1.0/api/tag/`)
     .then(response => {
       console.log(response);
       return response;
-    })
-}
+    });
+};
 
 export const addTagToCaption = value => {
   return axios

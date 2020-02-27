@@ -1,25 +1,24 @@
 import * as ACTIONS from "./ActionConstants.jsx";
-import { addNewCaption, addTagToCaption } from "../EndPoints.jsx";
+// import { addNewCaption, addTagToCaption } from "../EndPoints.jsx";
+import { addNewCaption } from "../EndPoints.jsx";
 
 const { ADD_CAPTION, FETCH_CAPTIONS, FETCH_TAGS } = ACTIONS;
 
 export const addCaption = e => dispatch => {
-  e.preventDefault()
-  let captions = []
+  e.preventDefault();
+  let captions = [];
 
-  let value = e.target.caption.value
-  addNewCaption(value)
-    .then(response => {
-      if (response.data) {
-        captions = response.data.data.captions
-      }
-    })
+  let value = e.target.caption.value;
+  addNewCaption(value).then(response => {
+    if (response.data) {
+      captions = response.data.data.captions;
+    }
+  });
   return {
     type: ADD_CAPTION,
     captions
   };
 };
-
 
 export const fetchAllCaptions = captions => {
   return {
@@ -35,7 +34,6 @@ export const fetchAllTags = tags => {
   };
 };
 
-
 // export const addNewTagToCaption = (e, ) => dispatch => {
 //   e.preventDefault()
 
@@ -45,7 +43,6 @@ export const fetchAllTags = tags => {
 //     captions
 //   };
 // };
-
 
 export default function reducer(
   state = {

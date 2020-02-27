@@ -6,6 +6,9 @@ import { fetchTags } from "../../EndPoints.jsx";
 // import $ from "jquery";
 
 class AddCaptionForm extends Component {
+  state = {
+    baba: []
+  };
   componentDidMount() {
     fetchTags()
       .then(res => {
@@ -23,8 +26,22 @@ class AddCaptionForm extends Component {
       });
   }
 
+  clickTag = index => {
+    let new_baba = [];
+    console.log(" this is index >> ", index);
+    for (let i = 0; i < this.props.tags.length; i++) {
+      if (i === index) {
+        new_baba.push(true);
+      } else {
+        new_baba.push(false);
+      }
+    }
+    this.setState({ baba: new_baba });
+  };
+
   render() {
-    let { postCaptionHandler, setQ, tags } = this.props;
+    // let { postCaptionHandler, setQ, tags } = this.props;
+    let { tags } = this.props;
 
     const styles = {
       position: "relative",
@@ -53,13 +70,16 @@ class AddCaptionForm extends Component {
                   id={`${tag.id} index`}
                 />
                 <label
+                  onClick={() => this.clickTag(index)}
                   className="d-flex tags-label"
                   htmlFor={`${tag.id} index`}
                 >
                   <div className="tag-icon bg-primary p-3 rounded-left text-white  s-1">
-                    <i className="fa fa-check"></i>
+                    <i
+                      className={this.state.baba[index] ? "fa fa-check" : ""}
+                    ></i>
                   </div>
-                  <div className="d-flex pl-2 border s-2 w-50">{tag.id}</div>
+                  <div className="d-flex pl-2 border s-2 w-50">{tag}</div>
                 </label>
               </div>
             ))}
